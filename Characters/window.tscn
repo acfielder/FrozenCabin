@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://7lv2k4tw48b8"]
+
+[ext_resource type="Texture2D" uid="uid://cs4fym8l64smc" path="res://Characters/Window.png" id="1_falmc"]
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(28.2098, 25.0625)
+scale = Vector2(0.130455, 0.130455)
+texture = ExtResource("1_falmc")
