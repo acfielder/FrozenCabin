@@ -1,0 +1,49 @@
+[gd_scene load_steps=5 format=3 uid="uid://dd22gcqbpa753"]
+
+[ext_resource type="Texture2D" uid="uid://c73rvs7y7k8yd" path="res://Memory/MemTiles.png" id="1_igca3"]
+[ext_resource type="Script" path="res://memory_map.gd" id="2_hhb03"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ee228"]
+texture = ExtResource("1_igca3")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+8:0/0 = 0
+9:0/0 = 0
+0:1/next_alternative_id = 2
+0:1/0 = 0
+0:1/1 = 1
+0:1/1/modulate = Color(0.843137, 0.913725, 0.839216, 1)
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+8:1/0 = 0
+9:1/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_j8rsl"]
+sources/1 = SubResource("TileSetAtlasSource_ee228")
+
+[node name="MemoryMap" type="TileMap"]
+position = Vector2(58, 13)
+scale = Vector2(2.2, 2.2)
+tile_set = SubResource("TileSet_j8rsl")
+format = 2
+layer_0/name = "hidden"
+layer_0/z_index = 5
+layer_1/name = "revealed"
+layer_1/enabled = true
+layer_1/modulate = Color(1, 1, 1, 1)
+layer_1/y_sort_enabled = false
+layer_1/y_sort_origin = 0
+layer_1/z_index = 0
+layer_1/tile_data = PackedInt32Array()
+script = ExtResource("2_hhb03")

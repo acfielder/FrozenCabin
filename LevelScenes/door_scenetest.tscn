@@ -1,0 +1,31 @@
+[gd_scene load_steps=2 format=3 uid="uid://c0gux7ot0xqqx"]
+
+[ext_resource type="Script" path="res://LevelScenes/door_scenetest.gd" id="1_ig7qm"]
+
+[node name="DoorScenetest" type="Control"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_ig7qm")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 274.0
+offset_bottom = 188.0
+color = Color(0.854902, 0.92549, 0.588235, 1)
+
+[node name="DoorClose" type="Button" parent="."]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 111.0
+offset_right = 73.0
+offset_bottom = 143.0
+
+[node name="DoorOverallTimer" type="Label" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[connection signal="pressed" from="DoorClose" to="." method="_on_door_close_pressed"]

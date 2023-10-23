@@ -13,13 +13,15 @@ func _input(event):
 	if event.is_action_pressed("SceneOpen") && get_node("MainDude").get("collision_check_climb"):
 		get_node("RoofScene").show()
 		get_node("MainDude").collision_check_climb = false
+		
+
 
 
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$Timer.start()
+	$OverallTimer.start()
 	
 	#pass
 
@@ -27,7 +29,7 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	#$TimeLeftLabel.text= str($Timer.time_left)
-	$TimeLeftLabel.text = "%d:%02d" % [floor($Timer.time_left / 60), int($Timer.time_left) % 60]
+	$TimeLeftLabel.text = "%d:%02d" % [floor($OverallTimer.time_left / 60), int($OverallTimer.time_left) % 60]
 
 
 
@@ -43,3 +45,5 @@ func _on_eat_close_pressed():
 
 func _on_roof_close_pressed():
 	get_node("RoofScene").hide()
+
+

@@ -4,6 +4,7 @@ const SPEED = 125.0
 @export var collision_check_bed = false;
 @export var collision_check_eat = false;
 @export var collision_check_climb = false;
+@export var collision_check_door = false;
 
 
 func _physics_process(delta):
@@ -24,16 +25,25 @@ func _physics_process(delta):
 		collision_check_bed = true;
 		collision_check_eat = false;
 		collision_check_climb = false;
+		collision_check_door = false;
 		
 	if collision && collision_check_eat == false && collision.get_collider().name == "Table":
 		collision_check_eat = true;
 		collision_check_bed = false;
 		collision_check_climb = false;
+		collision_check_door = false;
 
 	if collision && collision_check_climb == false && collision.get_collider().name == "Ladder":
 		collision_check_climb = true;
 		collision_check_bed = false;
 		collision_check_eat = false;
+		collision_check_door = false;
+		
+	if collision && collision_check_door == false && collision.get_collider().name == "Door":
+		collision_check_climb = false;
+		collision_check_bed = false;
+		collision_check_eat = false;
+		collision_check_door = true;
 
 	move_and_slide()
 

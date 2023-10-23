@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://h3ddmqivm6hn"]
+[gd_scene load_steps=16 format=3 uid="uid://h3ddmqivm6hn"]
 
 [ext_resource type="Texture2D" uid="uid://cuj1s0im7thpb" path="res://Floor.png" id="1_3u0os"]
 [ext_resource type="Script" path="res://test_level.gd" id="1_bx2yn"]
@@ -10,6 +10,8 @@
 [ext_resource type="PackedScene" uid="uid://7lv2k4tw48b8" path="res://Characters/window.tscn" id="7_vvt4j"]
 [ext_resource type="PackedScene" uid="uid://dpsc6meevel4f" path="res://Characters/furnace.tscn" id="8_ggyb5"]
 [ext_resource type="PackedScene" uid="uid://c50s7sxyr6mxy" path="res://Characters/door.tscn" id="9_ec4o2"]
+[ext_resource type="PackedScene" uid="uid://dd22gcqbpa753" path="res://memory_map.tscn" id="11_a3h70"]
+[ext_resource type="PackedScene" uid="uid://c0gux7ot0xqqx" path="res://LevelScenes/door_scenetest.tscn" id="12_5o3w1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ypwo5"]
 texture = ExtResource("1_3u0os")
@@ -2775,8 +2777,6 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_ypwo5")
 sources/1 = SubResource("TileSetAtlasSource_5nup4")
 
-[sub_resource type="TileSet" id="TileSet_j8rsl"]
-
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_bx2yn")
 
@@ -2847,17 +2847,29 @@ color = Color(0.498039, 0.498039, 1, 1)
 
 [node name="EatClose" type="Button" parent="EatScene"]
 layout_mode = 0
-offset_left = 90.0
-offset_top = 116.0
-offset_right = 153.0
-offset_bottom = 156.0
+offset_left = 232.0
+offset_top = 60.0
+offset_right = 295.0
+offset_bottom = 114.0
 text = "Finish
 Eating
 "
 
-[node name="MemoryMap" type="TileMap" parent="EatScene"]
-tile_set = SubResource("TileSet_j8rsl")
-format = 2
+[node name="MemoryMap" parent="EatScene" instance=ExtResource("11_a3h70")]
+
+[node name="Eaten" type="Label" parent="EatScene"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 209.0
+offset_top = 23.0
+offset_right = 251.0
+offset_bottom = 46.0
+text = "hello"
+
+[node name="HungerLevel" type="Label" parent="EatScene"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
 
 [node name="RoofScene" type="Control" parent="."]
 visible = false
@@ -2881,18 +2893,28 @@ offset_bottom = 152.0
 text = "Climb
 Down"
 
-[node name="Timer" type="Timer" parent="."]
+[node name="OverallTimer" type="Timer" parent="."]
 wait_time = 50.0
 one_shot = true
 
 [node name="TimeLeftLabel" type="Label" parent="."]
-offset_left = 27.0
-offset_top = -2.0
-offset_right = 69.0
-offset_bottom = 24.0
+offset_left = 24.0
+offset_top = 4.0
+offset_right = 66.0
+offset_bottom = 30.0
+scale = Vector2(0.600401, 0.620629)
 text = "00:00"
+
+[node name="HungerTimer" type="Timer" parent="."]
+
+[node name="HungerLevelMain" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="DoorScenetest" parent="." instance=ExtResource("12_5o3w1")]
 
 [connection signal="pressed" from="BedScene/BedClose" to="." method="_on_bed_close_pressed"]
 [connection signal="pressed" from="EatScene/EatClose" to="." method="_on_eat_close_pressed"]
+[connection signal="pressed" from="EatScene/EatClose" to="EatScene/MemoryMap" method="_on_eat_close_pressed"]
 [connection signal="pressed" from="RoofScene/RoofClose" to="." method="_on_roof_close_pressed"]
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="OverallTimer" to="." method="_on_timer_timeout"]
