@@ -1,0 +1,34 @@
+[gd_scene load_steps=2 format=3 uid="uid://c4br0rbhuvgbi"]
+
+[ext_resource type="Script" path="res://LevelScenes/bed_scene.gd" id="1_rfgch"]
+
+[node name="BedScene" type="Control"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_rfgch")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = -23.0
+offset_top = -17.0
+offset_right = 289.0
+offset_bottom = 193.0
+color = Color(0.498039, 0.498039, 1, 1)
+
+[node name="BedClose" type="Button" parent="."]
+layout_mode = 0
+offset_left = 95.0
+offset_top = 116.0
+offset_right = 169.0
+offset_bottom = 156.0
+text = "wake up"
+
+[node name="BedOverallTimer" type="Label" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[connection signal="pressed" from="BedClose" to="." method="_on_bed_close_pressed"]
