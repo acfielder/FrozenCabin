@@ -2813,9 +2813,10 @@ position = Vector2(131, 98)
 
 [node name="EatScene" parent="." instance=ExtResource("11_211uf")]
 
-[node name="DoorScenetest" parent="." instance=ExtResource("12_5o3w1")]
-
 [node name="RoofScene" parent="." instance=ExtResource("14_1m80g")]
+
+[node name="DoorScenetest" parent="." instance=ExtResource("12_5o3w1")]
+visible = false
 
 [node name="OverallTimer" type="Timer" parent="."]
 wait_time = 50.0
@@ -2832,5 +2833,15 @@ text = "00:00"
 [node name="HungerLevelMain" type="Label" parent="."]
 offset_right = 40.0
 offset_bottom = 23.0
+
+[node name="DoorLevelMain" type="Label" parent="."]
+offset_left = 140.0
+offset_top = 23.0
+offset_right = 180.0
+offset_bottom = 49.0
+text = "0"
+
+[node name="DoorTimer" type="Timer" parent="."]
+wait_time = 100.0
 
 [connection signal="timeout" from="OverallTimer" to="." method="_on_timer_timeout"]

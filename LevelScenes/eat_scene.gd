@@ -14,8 +14,8 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	$EatOverallTimer.text = get_node("/root/Node2D").timer_text
-
+	#$EatOverallTimer.text = get_node("/root/Node2D").timer_text
+	pass
 
 func _on_eat_close_pressed():
 	get_node("/root/Node2D/EatScene").hide()

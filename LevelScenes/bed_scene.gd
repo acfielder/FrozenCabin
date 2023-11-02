@@ -13,8 +13,8 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	$BedOverallTimer.text = get_node("/root/Node2D").timer_text
-
+	#$BedOverallTimer.text = get_node("/root/Node2D").timer_text
+	pass
 
 
 func _on_bed_close_pressed():

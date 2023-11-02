@@ -11,8 +11,8 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	$RoofOverallTimer.text = get_node("/root/Node2D").timer_text
-
+	#$RoofOverallTimer.text = get_node("/root/Node2D").timer_text
+	pass
 
 func _on_roof_close_pressed():
 	get_node("/root/Node2D/RoofScene").hide()
