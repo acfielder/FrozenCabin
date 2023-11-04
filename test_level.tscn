@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://h3ddmqivm6hn"]
+[gd_scene load_steps=20 format=3 uid="uid://h3ddmqivm6hn"]
 
 [ext_resource type="Texture2D" uid="uid://cuj1s0im7thpb" path="res://Floor.png" id="1_3u0os"]
 [ext_resource type="Script" path="res://test_level.gd" id="1_bx2yn"]
@@ -14,6 +14,8 @@
 [ext_resource type="PackedScene" uid="uid://c4br0rbhuvgbi" path="res://LevelScenes/bed_scene.tscn" id="11_i31u3"]
 [ext_resource type="PackedScene" uid="uid://c0gux7ot0xqqx" path="res://LevelScenes/door_scenetest.tscn" id="12_5o3w1"]
 [ext_resource type="PackedScene" uid="uid://mghcfn3sjbsn" path="res://LevelScenes/roof_scene.tscn" id="14_1m80g"]
+[ext_resource type="Texture2D" uid="uid://c07dxxfv2rdui" path="res://Characters/progress/borderProgress.png" id="15_0l0mm"]
+[ext_resource type="Texture2D" uid="uid://bg2nwwx3nw3f7" path="res://Characters/progress/mainProgress.png" id="16_t4vff"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ypwo5"]
 texture = ExtResource("1_3u0os")
@@ -2800,18 +2802,83 @@ position = Vector2(-7, -17)
 [node name="Window" parent="." instance=ExtResource("7_vvt4j")]
 position = Vector2(74, 6)
 
+[node name="DoorProgress" type="TextureProgressBar" parent="."]
+offset_left = 160.0
+offset_top = 15.0
+offset_right = 191.0
+offset_bottom = 96.0
+scale = Vector2(0.503212, 0.503212)
+value = 50.0
+allow_greater = true
+fill_mode = 3
+texture_under = ExtResource("15_0l0mm")
+texture_over = ExtResource("16_t4vff")
+texture_progress = ExtResource("15_0l0mm")
+tint_under = Color(0, 0, 0, 1)
+tint_over = Color(0, 0.529412, 1, 1)
+tint_progress = Color(0.160784, 0.811765, 0, 1)
+
+[node name="EatProgress" type="TextureProgressBar" parent="."]
+offset_left = 222.0
+offset_top = 106.0
+offset_right = 253.0
+offset_bottom = 187.0
+scale = Vector2(0.503212, 0.503212)
+value = 50.0
+allow_greater = true
+fill_mode = 3
+texture_under = ExtResource("15_0l0mm")
+texture_over = ExtResource("16_t4vff")
+texture_progress = ExtResource("15_0l0mm")
+tint_under = Color(0, 0, 0, 1)
+tint_over = Color(0, 0.529412, 1, 1)
+tint_progress = Color(0.160784, 0.811765, 0, 1)
+
+[node name="FurnaceProgress" type="TextureProgressBar" parent="."]
+offset_left = 73.0
+offset_top = 18.0
+offset_right = 104.0
+offset_bottom = 99.0
+scale = Vector2(0.503212, 0.503212)
+value = 50.0
+allow_greater = true
+fill_mode = 3
+texture_under = ExtResource("15_0l0mm")
+texture_over = ExtResource("16_t4vff")
+texture_progress = ExtResource("15_0l0mm")
+tint_under = Color(0, 0, 0, 1)
+tint_over = Color(0, 0.529412, 1, 1)
+tint_progress = Color(0.160784, 0.811765, 0, 1)
+
+[node name="SleepProgress" type="TextureProgressBar" parent="."]
+offset_left = 20.0
+offset_top = 116.0
+offset_right = 51.0
+offset_bottom = 197.0
+scale = Vector2(0.503212, 0.503212)
+value = 50.0
+allow_greater = true
+fill_mode = 3
+texture_under = ExtResource("15_0l0mm")
+texture_over = ExtResource("16_t4vff")
+texture_progress = ExtResource("15_0l0mm")
+tint_under = Color(0, 0, 0, 1)
+tint_over = Color(0, 0.529412, 1, 1)
+tint_progress = Color(0.160784, 0.811765, 0, 1)
+
 [node name="MainDude" parent="." instance=ExtResource("3_bon7r")]
 position = Vector2(126, 137)
 
 [node name="Bed" parent="." instance=ExtResource("4_dkuex")]
-position = Vector2(-7, 15)
+position = Vector2(8, 15)
 
 [node name="Table" parent="." instance=ExtResource("6_e8d53")]
-position = Vector2(131, 98)
+position = Vector2(113, 101)
 
 [node name="BedScene" parent="." instance=ExtResource("11_i31u3")]
 
 [node name="EatScene" parent="." instance=ExtResource("11_211uf")]
+visible = false
 
 [node name="RoofScene" parent="." instance=ExtResource("14_1m80g")]
 
@@ -2831,8 +2898,11 @@ scale = Vector2(0.600401, 0.620629)
 text = "00:00"
 
 [node name="HungerLevelMain" type="Label" parent="."]
-offset_right = 40.0
-offset_bottom = 23.0
+offset_left = 166.0
+offset_top = 140.0
+offset_right = 206.0
+offset_bottom = 163.0
+text = "0"
 
 [node name="DoorLevelMain" type="Label" parent="."]
 offset_left = 140.0
@@ -2843,5 +2913,10 @@ text = "0"
 
 [node name="DoorTimer" type="Timer" parent="."]
 wait_time = 100.0
+one_shot = true
+
+[node name="EatTimer" type="Timer" parent="."]
+wait_time = 100.0
+one_shot = true
 
 [connection signal="timeout" from="OverallTimer" to="." method="_on_timer_timeout"]

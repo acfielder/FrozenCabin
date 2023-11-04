@@ -18,10 +18,13 @@ func _input(event):
 		test_num = test_num +1
 
 func _process(delta):
-	$DoorOverallTimer.text = get_node("/root/Node2D").timer_text
+	$DoorOverallTimer.text = str(get_node("/root/Node2D/DoorTimer").time_left)
 	$Score.text = str(test_num)
+	#$Label.text = str(get_node("/root/Node2D/DoorTimer").time_left)
+	$Label.text = str(global.doorToAdd)
 
 func _on_door_close_pressed():
 		#get_tree().change_scene_to_file("res://test_level.tscn")
+		global.doorToAdd = test_num
 		queue_free()
 		
