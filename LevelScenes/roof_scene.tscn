@@ -3,7 +3,6 @@
 [ext_resource type="Script" path="res://LevelScenes/roof_scene.gd" id="1_rbq52"]
 
 [node name="RoofScene" type="Control"]
-visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0

@@ -2834,22 +2834,6 @@ tint_under = Color(0, 0, 0, 1)
 tint_over = Color(0, 0.529412, 1, 1)
 tint_progress = Color(0.160784, 0.811765, 0, 1)
 
-[node name="FurnaceProgress" type="TextureProgressBar" parent="."]
-offset_left = 73.0
-offset_top = 18.0
-offset_right = 104.0
-offset_bottom = 99.0
-scale = Vector2(0.503212, 0.503212)
-value = 50.0
-allow_greater = true
-fill_mode = 3
-texture_under = ExtResource("15_0l0mm")
-texture_over = ExtResource("16_t4vff")
-texture_progress = ExtResource("15_0l0mm")
-tint_under = Color(0, 0, 0, 1)
-tint_over = Color(0, 0.529412, 1, 1)
-tint_progress = Color(0.160784, 0.811765, 0, 1)
-
 [node name="SleepProgress" type="TextureProgressBar" parent="."]
 offset_left = 20.0
 offset_top = 116.0
@@ -2866,8 +2850,24 @@ tint_under = Color(0, 0, 0, 1)
 tint_over = Color(0, 0.529412, 1, 1)
 tint_progress = Color(0.160784, 0.811765, 0, 1)
 
+[node name="ClimbProgress" type="TextureProgressBar" parent="."]
+offset_left = 215.0
+offset_top = 15.0
+offset_right = 246.0
+offset_bottom = 96.0
+scale = Vector2(0.503212, 0.503212)
+value = 50.0
+allow_greater = true
+fill_mode = 3
+texture_under = ExtResource("15_0l0mm")
+texture_over = ExtResource("16_t4vff")
+texture_progress = ExtResource("15_0l0mm")
+tint_under = Color(0, 0, 0, 1)
+tint_over = Color(0, 0.529412, 1, 1)
+tint_progress = Color(0.160784, 0.811765, 0, 1)
+
 [node name="MainDude" parent="." instance=ExtResource("3_bon7r")]
-position = Vector2(126, 137)
+position = Vector2(113, 133)
 
 [node name="Bed" parent="." instance=ExtResource("4_dkuex")]
 position = Vector2(8, 15)
@@ -2876,11 +2876,13 @@ position = Vector2(8, 15)
 position = Vector2(113, 101)
 
 [node name="BedScene" parent="." instance=ExtResource("11_i31u3")]
+visible = false
 
 [node name="EatScene" parent="." instance=ExtResource("11_211uf")]
 visible = false
 
 [node name="RoofScene" parent="." instance=ExtResource("14_1m80g")]
+visible = false
 
 [node name="DoorScenetest" parent="." instance=ExtResource("12_5o3w1")]
 visible = false
@@ -2911,11 +2913,33 @@ offset_right = 180.0
 offset_bottom = 49.0
 text = "0"
 
+[node name="ClimbLevelMain" type="Label" parent="."]
+offset_left = 192.0
+offset_top = 26.0
+offset_right = 232.0
+offset_bottom = 52.0
+text = "0"
+
+[node name="BedLevelMain" type="Label" parent="."]
+offset_left = 43.0
+offset_top = 140.0
+offset_right = 83.0
+offset_bottom = 166.0
+text = "0"
+
 [node name="DoorTimer" type="Timer" parent="."]
 wait_time = 100.0
 one_shot = true
 
 [node name="EatTimer" type="Timer" parent="."]
+wait_time = 100.0
+one_shot = true
+
+[node name="BedTimer" type="Timer" parent="."]
+wait_time = 100.0
+one_shot = true
+
+[node name="ClimbTimer" type="Timer" parent="."]
 wait_time = 100.0
 one_shot = true
 

@@ -3,7 +3,6 @@
 [ext_resource type="Script" path="res://LevelScenes/bed_scene.gd" id="1_rfgch"]
 
 [node name="BedScene" type="Control"]
-visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0

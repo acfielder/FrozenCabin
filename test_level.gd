@@ -6,6 +6,8 @@ func _ready():
 	$OverallTimer.start()
 	$DoorTimer.start()
 	$EatTimer.start()
+	$BedTimer.start()
+	$ClimbTimer.start()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -15,7 +17,7 @@ func _process(delta):
 	
 	
 	$DoorLevelMain.text = str(floor($DoorTimer.time_left))
-	$Label.text = str(global.doorToAdd)
+	#$Label.text = str(global.doorToAdd)
 	$DoorProgress.value = floor($DoorTimer.time_left)
 	if global.doorToAdd > 0:
 		$DoorTimer.set_wait_time($DoorTimer.time_left + (global.doorToAdd * 4))
@@ -31,6 +33,13 @@ func _process(delta):
 		$EatTimer.start()
 		await get_tree().create_timer(0.00167).timeout
 		global.eaten = 0
+		
+	
+	$ClimbLevelMain.text = str(floor($ClimbTimer.time_left))
+	$ClimbProgress.value = floor($ClimbTimer.time_left)
+	
+	$BedLevelMain.text = str(floor($BedTimer.time_left))
+	$SleepProgress.value = floor($BedTimer.time_left)
 
 
 func _on_timer_timeout():

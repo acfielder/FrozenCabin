@@ -1,9 +1,11 @@
 extends Control
 
+var stlevel
 
 func _input(event):
 	if event.is_action_pressed("SceneOpen") && get_node("/root/Node2D/MainDude").get("collision_check_bed"):
-		get_node("/root/Node2D/BedScene").show()
+		stlevel = load("res://LevelScenes/bed_scene.tscn").instantiate()
+		get_tree().get_root().add_child(stlevel)
 		get_node("/root/Node2D/MainDude").collision_check_bed = false
 
 # Called when the node enters the scene tree for the first time.
@@ -14,8 +16,10 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	#$BedOverallTimer.text = get_node("/root/Node2D").timer_text
-	pass
+	$BedOverallTimer.text = str(get_node("/root/Node2D/BedTimer").time_left)
+
 
 
 func _on_bed_close_pressed():
-	get_node("/root/Node2D/BedScene").hide()
+	#global.sleepScore = ascore
+	queue_free()
