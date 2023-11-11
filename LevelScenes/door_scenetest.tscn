@@ -46,4 +46,6 @@ offset_right = 215.0
 offset_bottom = 68.0
 text = "d"
 
+[node name="MainTimer" type="Timer" parent="."]
+
 [connection signal="pressed" from="DoorClose" to="." method="_on_door_close_pressed"]

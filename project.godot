@@ -18,7 +18,6 @@ config/icon="res://icon.svg"
 [autoload]
 
 global="*res://global.gd"
-TestLevel="*res://test_level.tscn"
 
 [display]
 

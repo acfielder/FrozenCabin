@@ -2867,16 +2867,13 @@ tint_over = Color(0, 0.529412, 1, 1)
 tint_progress = Color(0.160784, 0.811765, 0, 1)
 
 [node name="MainDude" parent="." instance=ExtResource("3_bon7r")]
-position = Vector2(113, 133)
+position = Vector2(97, 140)
 
 [node name="Bed" parent="." instance=ExtResource("4_dkuex")]
 position = Vector2(8, 15)
 
 [node name="Table" parent="." instance=ExtResource("6_e8d53")]
 position = Vector2(113, 101)
-
-[node name="BedScene" parent="." instance=ExtResource("11_i31u3")]
-visible = false
 
 [node name="EatScene" parent="." instance=ExtResource("11_211uf")]
 visible = false
@@ -2885,6 +2882,9 @@ visible = false
 visible = false
 
 [node name="DoorScenetest" parent="." instance=ExtResource("12_5o3w1")]
+visible = false
+
+[node name="BedScene" parent="." instance=ExtResource("11_i31u3")]
 visible = false
 
 [node name="OverallTimer" type="Timer" parent="."]

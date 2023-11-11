@@ -3,11 +3,19 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$OverallTimer.wait_time = global.OverallTimerVal
+	$DoorTimer.wait_time = global.DoorTimerVal
+	$EatTimer.wait_time = global.EatTimerVal
+	$BedTimer.wait_time = global.BedTimerVal
+	$ClimbTimer.wait_time = global.ClimbTimerVal
+	
+	
 	$OverallTimer.start()
 	$DoorTimer.start()
 	$EatTimer.start()
 	$BedTimer.start()
 	$ClimbTimer.start()
+	#$MainDude.position = Vector2(97, 140)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
