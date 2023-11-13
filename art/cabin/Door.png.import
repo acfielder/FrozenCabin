@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dkvax68g6hfjk"
-path="res://.godot/imported/Person.png-0d1f246b4498509ed389a11a4624dca8.ctex"
+uid="uid://6uefn2sa0v27"
+path="res://.godot/imported/Door.png-e32ec87f180d89b7e381607d1d71fb3b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Characters/Person.png"
-dest_files=["res://.godot/imported/Person.png-0d1f246b4498509ed389a11a4624dca8.ctex"]
+source_file="res://art/cabin/Door.png"
+dest_files=["res://.godot/imported/Door.png-e32ec87f180d89b7e381607d1d71fb3b.ctex"]
 
 [params]
 

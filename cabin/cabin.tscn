@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://iqkyhc1tlp8f"]
+
+[ext_resource type="PackedScene" uid="uid://c50s7sxyr6mxy" path="res://cabin/door.tscn" id="1_47sdl"]
+[ext_resource type="PackedScene" uid="uid://ilrdo0ijdcti" path="res://cabin/MainDude.tscn" id="2_peqd2"]
+
+[node name="cabin" type="Node2D"]
+
+[node name="Door" parent="." instance=ExtResource("1_47sdl")]
+
+[node name="MainDude" parent="." instance=ExtResource("2_peqd2")]
+position = Vector2(178, 254)
+scale = Vector2(0.5, 0.5)

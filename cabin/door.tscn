@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://c50s7sxyr6mxy"]
+
+[ext_resource type="Script" path="res://cabin/door.gd" id="1_6vbbj"]
+[ext_resource type="Texture2D" uid="uid://6uefn2sa0v27" path="res://art/cabin/Door.png" id="2_4ewx8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t77km"]
+size = Vector2(35, 60)
+
+[node name="Door" type="StaticBody2D" groups=["minigame_trigger"]]
+script = ExtResource("1_6vbbj")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(20, 31)
+scale = Vector2(0.145669, 0.145669)
+texture = ExtResource("2_4ewx8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(18, 30)
+shape = SubResource("RectangleShape2D_t77km")

@@ -15,15 +15,14 @@ run/main_scene="res://test_level.tscn"
 config/features=PackedStringArray("4.1", "Mobile")
 config/icon="res://icon.svg"
 
-[autoload]
-
-global="*res://global.gd"
-TestLevel="*res://test_level.tscn"
-
 [display]
 
 window/size/resizable=false
 window/stretch/scale=4.0
+
+[dotnet]
+
+project/assembly_name="Cabin"
 
 [input]
 

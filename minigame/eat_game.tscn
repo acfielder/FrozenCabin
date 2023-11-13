@@ -1,14 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://8lyag8idibyn"]
+[gd_scene load_steps=3 format=3 uid="uid://bxihig2s61imj"]
 
-[ext_resource type="PackedScene" uid="uid://dd22gcqbpa753" path="res://memory_map.tscn" id="1_88xrr"]
-[ext_resource type="Script" path="res://LevelScenes/eat_scene.gd" id="1_hnm1k"]
+[ext_resource type="Script" path="res://minigame/eat_game.gd" id="1_6qhkc"]
+[ext_resource type="PackedScene" uid="uid://dd22gcqbpa753" path="res://memory_map.tscn" id="2_oqxt1"]
 
 [node name="EatScene" type="Control"]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
-script = ExtResource("1_hnm1k")
+script = ExtResource("1_6qhkc")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 0
@@ -28,7 +28,7 @@ text = "Finish
 Eating
 "
 
-[node name="MemoryMap" parent="." instance=ExtResource("1_88xrr")]
+[node name="MemoryMap" parent="." instance=ExtResource("2_oqxt1")]
 
 [node name="Eaten" type="Label" parent="."]
 unique_name_in_owner = true
@@ -48,5 +48,3 @@ offset_bottom = 23.0
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
-
-[connection signal="pressed" from="EatClose" to="." method="_on_eat_close_pressed"]

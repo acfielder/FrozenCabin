@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://da5w6fvx0uott"]
+
+[ext_resource type="PackedScene" uid="uid://ilrdo0ijdcti" path="res://cabin/MainDude.tscn" id="1_b4xpe"]
+[ext_resource type="PackedScene" uid="uid://c50s7sxyr6mxy" path="res://cabin/door.tscn" id="2_0ygk3"]
+
+[node name="dude_minigame_test" type="Node2D"]
+
+[node name="MainDude" parent="." instance=ExtResource("1_b4xpe")]
+position = Vector2(80, 248)
+
+[node name="Door" parent="." instance=ExtResource("2_0ygk3")]
