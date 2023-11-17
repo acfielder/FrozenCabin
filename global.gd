@@ -7,6 +7,8 @@ var eaten = 0
 var sleepScore = 0
 var roofScore = 0
 
+
+
 #need variables for each progress bar level
 	#these are really just the timer variables
 

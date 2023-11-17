@@ -75,6 +75,8 @@ func _physics_process(delta):
 		collision_check_eat = false;
 		collision_check_door = true;
 
+	
+	
 	move_and_collide(velocity * delta)
 	
 

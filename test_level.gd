@@ -42,6 +42,14 @@ func _process(delta):
 		await get_tree().create_timer(0.00167).timeout
 		global.eaten = 0
 		
+	$BedLevelMain.text = str(floor($BedTimer.time_left))
+	$SleepProgress.value = floor($BedTimer.time_left)
+	if global.sleepScore > 0:
+		$BedTimer.set_wait_time($BedTimer.time_left +(global.sleepScore * 4))
+		$BedTimer.start()
+		await get_tree().create_timer(0.00167).timeout
+		global.sleepScore = 0
+		
 	
 	$ClimbLevelMain.text = str(floor($ClimbTimer.time_left))
 	$ClimbProgress.value = floor($ClimbTimer.time_left)
@@ -49,6 +57,18 @@ func _process(delta):
 	$BedLevelMain.text = str(floor($BedTimer.time_left))
 	$SleepProgress.value = floor($BedTimer.time_left)
 
+	if $ClimbTimer.time_left < 80:
+		$Snow.visible = true
+	else:
+		$Snow.visible = false
+	if $ClimbTimer.time_left < 60:
+		$Snow2.visible = true
+	else:
+		$Snow2.visible = false
+	if $ClimbTimer.time_left < 40:
+		$Snow3.visible = true
+	else:
+		$Snow3.visible = false
 
 func _on_timer_timeout():
 	print("all done")
