@@ -5,6 +5,7 @@ const speed = 10
 @export var collision_check_eat = false;
 @export var collision_check_climb = false;
 @export var collision_check_door = false;
+@export var collision_check_furnace = false;
 
 
 func _physics_process(delta):
@@ -19,71 +20,71 @@ func _physics_process(delta):
 	else:
 		velocity.y = move_toward(velocity.y, 0, SPEED)
 		
-#func _process(delta):
-#	if Input.is_action_pressed("right"):
-#		position.x += 1
-#	if Input.is_action_pressed("left"):
-#		position.x -= 1
-#	if Input.is_action_pressed("up"):
-#		position.y -= 1
-#	if Input.is_action_pressed("down"):
-#		position.y += 1
-	
-
-	
-#	var velocity = Vector2.ZERO
-#	if Input.is_action_pressed("right"):
-#		velocity.x += 1
-#	if Input.is_action_pressed("left"):
-#		velocity.x -= 1
-#	if Input.is_action_pressed("down"):
-#		velocity.y += 1
-#	if Input.is_action_pressed("up"):
-#		velocity.y -= 1
-	
-	
-#	if velocity.length() > 0:
-#		velocity = velocity.normalized() * speed
-#		$MainDude.play()
-#	else:
-#		$MainDude.stop()
-	
-#this is the orignal func
 	var collision = move_and_collide(velocity * delta)
+	if collision:
+		print(collision.get_collider().name)
 	
 	if collision && collision_check_bed == false && collision.get_collider().name == "Bed":
 		collision_check_bed = true;
 		collision_check_eat = false;
 		collision_check_climb = false;
 		collision_check_door = false;
+		collision_check_furnace = false;
 
 	if collision && collision_check_eat == false && collision.get_collider().name == "Table":
 		collision_check_eat = true;
 		collision_check_bed = false;
 		collision_check_climb = false;
 		collision_check_door = false;
+		collision_check_furnace = false;
 
 	if collision && collision_check_climb == false && collision.get_collider().name == "Ladder":
 		collision_check_climb = true;
 		collision_check_bed = false;
 		collision_check_eat = false;
 		collision_check_door = false;
+		collision_check_furnace = false;
 
 	if collision && collision_check_door == false && collision.get_collider().name == "Door":
 		collision_check_climb = false;
 		collision_check_bed = false;
 		collision_check_eat = false;
 		collision_check_door = true;
-
-	
+		collision_check_furnace = false;
+		
+	if collision && collision_check_furnace == false && collision.get_collider().name == "Furnace":
+		collision_check_furnace = true;
+		collision_check_climb = false;
+		collision_check_bed = false;
+		collision_check_eat = false;
+		collision_check_door = false;
+		
 	
 	move_and_collide(velocity * delta)
 	
 
-#func get_input():
-#	var input_dir = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
-#	velocity = input_dir * speed
+#New work
+#extends CharacterBody2D
 #
-#func _physics_process(delta):
-#	get_input()
-#	move_and_collide(velocity * delta)
+# const SPEED = 125.0
+#
+# signal start_minigame(minigame_node)
+#
+# func _physics_process(delta):
+# 	var xdirection = Input.get_axis("left", "right")
+# 	if xdirection:
+# 		velocity.x = xdirection * SPEED
+# 	else:
+# 		velocity.x = move_toward(velocity.x, 0, SPEED)
+# 	var ydirection = Input.get_axis("up", "down")
+# 	if ydirection:
+# 		velocity.y = ydirection * SPEED
+# 	else:
+# 		velocity.y = move_toward(velocity.y, 0, SPEED)
+#
+#
+# 	var collision:KinematicCollision2D = move_and_collide(velocity * delta)
+# 	if collision:
+# 		var collider = collision.get_collider()
+# 		if collider.is_in_group("minigame_trigger"):
+# 			start_minigame.emit(collision.get_collider().my_minigame_path)

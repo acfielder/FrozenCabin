@@ -1,0 +1,102 @@
+[gd_scene load_steps=7 format=3 uid="uid://ebs1p5cn780s"]
+
+[ext_resource type="Texture2D" uid="uid://c07dxxfv2rdui" path="res://Characters/progress/borderProgress.png" id="1_j8k37"]
+[ext_resource type="Script" path="res://LevelScenes/FurnaceScene.gd" id="1_u64d0"]
+[ext_resource type="Texture2D" uid="uid://bg2nwwx3nw3f7" path="res://Characters/progress/mainProgress.png" id="2_wrod5"]
+[ext_resource type="Texture2D" uid="uid://d0mi33psxov0p" path="res://Characters/WoodChopping/ThickLog.png" id="4_ynx3t"]
+[ext_resource type="Texture2D" uid="uid://b5av338oe2q16" path="res://Characters/WoodChopping/Axe.png" id="5_qxd3x"]
+[ext_resource type="Texture2D" uid="uid://b4g7awlc4ea5x" path="res://Characters/WoodChopping/CutLog.png" id="6_w4a05"]
+
+[node name="FurnaceScene" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_u64d0")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 296.0
+offset_bottom = 163.0
+color = Color(0.937255, 0.686275, 0.701961, 1)
+
+[node name="CenterPoint" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 139.0
+offset_top = 11.0
+offset_right = 151.0
+offset_bottom = 51.0
+color = Color(0.788235, 0.172549, 0.172549, 1)
+
+[node name="CuttingTime" type="TextureProgressBar" parent="."]
+layout_mode = 0
+offset_left = 186.0
+offset_top = 24.0
+offset_right = 217.0
+offset_bottom = 105.0
+rotation = 1.5708
+scale = Vector2(0.503212, 0.998995)
+value = 100.0
+allow_greater = true
+fill_mode = 3
+texture_under = ExtResource("1_j8k37")
+texture_over = ExtResource("2_wrod5")
+texture_progress = ExtResource("1_j8k37")
+tint_under = Color(0, 0, 0, 1)
+tint_over = Color(0, 0.529412, 1, 1)
+tint_progress = Color(0.396078, 0.729412, 0.827451, 1)
+
+[node name="MWood" type="Sprite2D" parent="."]
+position = Vector2(76, 122)
+scale = Vector2(0.347988, 0.283763)
+texture = ExtResource("4_ynx3t")
+
+[node name="Axe" type="Sprite2D" parent="."]
+position = Vector2(92, 89)
+scale = Vector2(0.322973, 0.322973)
+texture = ExtResource("5_qxd3x")
+
+[node name="Cut1" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(233, 130)
+rotation = 3.14159
+scale = Vector2(0.360759, 0.360759)
+texture = ExtResource("6_w4a05")
+
+[node name="Cut2" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(228, 118)
+scale = Vector2(0.360759, 0.360759)
+texture = ExtResource("6_w4a05")
+
+[node name="Cut3" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(225, 119)
+rotation = -0.261799
+scale = Vector2(0.360759, 0.360759)
+texture = ExtResource("6_w4a05")
+
+[node name="Cut4" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(231, 118)
+rotation = 0.261799
+scale = Vector2(0.360759, 0.360759)
+texture = ExtResource("6_w4a05")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 232.0
+offset_top = 18.0
+offset_right = 272.0
+offset_bottom = 44.0
+text = "0"
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 53.0
+offset_top = 18.0
+offset_right = 94.0
+offset_bottom = 45.0
+text = "main"
+
+[node name="MainTimer" type="Timer" parent="."]
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

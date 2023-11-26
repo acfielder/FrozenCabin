@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://dkhhs2njdlwu7"]
+
+[ext_resource type="Script" path="res://LevelScenes/test1.gd" id="1_gdika"]
+[ext_resource type="PackedScene" uid="uid://dpsc6meevel4f" path="res://Characters/furnace.tscn" id="1_mvr2a"]
+[ext_resource type="PackedScene" uid="uid://d33lc6owbl2mx" path="res://Characters/main_dude.tscn" id="2_48qa2"]
+
+[node name="test" type="Node2D"]
+script = ExtResource("1_gdika")
+
+[node name="Furnace" parent="." instance=ExtResource("1_mvr2a")]
+position = Vector2(-24, -24)
+
+[node name="MainDude" parent="." instance=ExtResource("2_48qa2")]
+position = Vector2(88, 56)
