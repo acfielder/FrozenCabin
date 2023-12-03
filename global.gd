@@ -2,57 +2,56 @@ extends Node
 
 const home = "res://test_level.tscn"
 
-var doorToAdd = 0
+var doorTotal = randi_range(400, 500)
+var doorCurrent
 var eaten = 0
 var sleepScore = 0
 var roofScore = 0
 var furnaceScore = 0
 
 
-
-#need variables for each progress bar level
-	#these are really just the timer variables
-
-var OverallTimerVal = 100
-#var DoorTimerVal = 100
-#var EatTimerVal = 100
-#var BedTimerVal = 100
+var OverallTimerVal := Timer.new()
 var ClimbTimerVal := Timer.new()
 var FurnaceTimerVal := Timer.new()
-
 var EatTimerVal := Timer.new()
 var DoorTimerVal := Timer.new()
 var BedTimerVal := Timer.new()
 
 
-
-
 var causeOfDeath = "n"
+var winReason = ""
 
-# Called when the node enters the scene tree for the first time.
+
 func _ready():
+	doorCurrent = doorTotal
+	
+	add_child(OverallTimerVal)
+	OverallTimerVal.set_wait_time(240)
+	OverallTimerVal.one_shot = true
+	OverallTimerVal.start()
+	
 	add_child(EatTimerVal)
-	EatTimerVal.set_wait_time(100)
+	EatTimerVal.set_wait_time(200)
 	EatTimerVal.one_shot = true
 	EatTimerVal.start()
 	
 	add_child(DoorTimerVal)
-	DoorTimerVal.set_wait_time(100)
+	DoorTimerVal.set_wait_time(randi_range(450, 550))
 	DoorTimerVal.one_shot = true
 	DoorTimerVal.start()
 	
 	add_child(BedTimerVal)
-	BedTimerVal.set_wait_time(100)
+	BedTimerVal.set_wait_time(200)
 	BedTimerVal.one_shot = true
 	BedTimerVal.start()
 	
 	add_child(ClimbTimerVal)
-	ClimbTimerVal.set_wait_time(100)
+	ClimbTimerVal.set_wait_time(1000)
 	ClimbTimerVal.one_shot = true
 	ClimbTimerVal.start()
 	
 	add_child(FurnaceTimerVal)
-	FurnaceTimerVal.set_wait_time(100)
+	FurnaceTimerVal.set_wait_time(150)
 	FurnaceTimerVal.one_shot = true
 	FurnaceTimerVal.start()
 
@@ -60,8 +59,6 @@ func _ready():
 
 
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if ClimbTimerVal.time_left == 0:
 		causeOfDeath = "the roof caving in"
@@ -73,7 +70,11 @@ func _process(delta):
 		global.causeOfDeath = "sleep deprivation"
 		get_tree().change_scene_to_file("res://LevelScenes/GameOver.tscn")
 	elif FurnaceTimerVal.time_left <= 0:
-		global.causeOfDeath = "froze to death"
+		global.causeOfDeath = "freezing to death"
 		get_tree().change_scene_to_file("res://LevelScenes/GameOver.tscn")
-
-	
+	elif OverallTimerVal.time_left == 0:
+		get_tree().change_scene_to_file("res://LevelScenes/YouWin.tscn")
+		winReason = "someone dug you out"
+	elif doorCurrent <= 0:
+		get_tree().change_scene_to_file("res://LevelScenes/YouWin.tscn")
+		winReason = "you dug yourself out"

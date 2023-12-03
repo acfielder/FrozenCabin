@@ -57,6 +57,4 @@ offset_right = 272.0
 offset_bottom = 149.0
 text = "0"
 
-[node name="MainTimer" type="Timer" parent="."]
-
 [connection signal="pressed" from="EatClose" to="." method="_on_eat_close_pressed"]

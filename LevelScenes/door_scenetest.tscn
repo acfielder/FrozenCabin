@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://c0gux7ot0xqqx"]
+[gd_scene load_steps=5 format=3 uid="uid://c0gux7ot0xqqx"]
 
 [ext_resource type="Script" path="res://LevelScenes/door_scenetest.gd" id="1_ig7qm"]
+[ext_resource type="Texture2D" uid="uid://chxk253601eiq" path="res://Characters/DooSnowBackground.png" id="2_ffcdt"]
+[ext_resource type="Texture2D" uid="uid://c265cq6wh8kgx" path="res://Characters/progress/doorProgress.png" id="3_de2d0"]
+[ext_resource type="Texture2D" uid="uid://iu3vn6o0anld" path="res://Characters/Shovel.png" id="4_etufa"]
 
 [node name="DoorScenetest" type="Control"]
 layout_mode = 3
@@ -9,43 +12,50 @@ offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("1_ig7qm")
 
-[node name="ColorRect" type="ColorRect" parent="."]
-layout_mode = 0
-offset_right = 274.0
-offset_bottom = 188.0
-color = Color(0.854902, 0.92549, 0.588235, 1)
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(139, 65)
+scale = Vector2(0.480333, 0.503438)
+texture = ExtResource("2_ffcdt")
 
 [node name="DoorClose" type="Button" parent="."]
 layout_mode = 0
-offset_left = 40.0
-offset_top = 111.0
-offset_right = 73.0
-offset_bottom = 143.0
-
-[node name="DoorOverallTimer" type="Label" parent="."]
-layout_mode = 0
-offset_left = 40.0
-offset_top = 55.0
-offset_right = 80.0
-offset_bottom = 78.0
-text = "00"
+offset_left = 167.0
+offset_top = 125.0
+offset_right = 257.0
+offset_bottom = 157.0
+text = "leave door"
 
 [node name="Score" type="Label" parent="."]
 layout_mode = 0
-offset_left = 107.0
-offset_top = 65.0
-offset_right = 147.0
-offset_bottom = 88.0
+offset_left = 182.0
+offset_top = 40.0
+offset_right = 222.0
+offset_bottom = 66.0
 text = "mm"
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
-offset_left = 175.0
-offset_top = 45.0
-offset_right = 215.0
-offset_bottom = 68.0
-text = "d"
+offset_left = 11.0
+offset_top = 4.0
+offset_right = 51.0
+offset_bottom = 27.0
 
-[node name="MainTimer" type="Timer" parent="."]
+[node name="SnowBar" type="TextureProgressBar" parent="."]
+layout_mode = 0
+offset_left = 76.0
+offset_top = 27.0
+offset_right = 156.0
+offset_bottom = 166.0
+value = 100.0
+fill_mode = 3
+texture_under = ExtResource("3_de2d0")
+texture_progress = ExtResource("3_de2d0")
+tint_under = Color(0.788235, 0.929412, 0.929412, 1)
+
+[node name="Shovel" type="Sprite2D" parent="."]
+position = Vector2(63, 108)
+rotation = 3.14159
+scale = Vector2(0.579375, 0.644714)
+texture = ExtResource("4_etufa")
 
 [connection signal="pressed" from="DoorClose" to="." method="_on_door_close_pressed"]

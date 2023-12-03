@@ -12,7 +12,6 @@ func _physics_process(delta):
 
 	velocity.y += gravity * delta
 
-	#velocity.x = move_toward(velocity.x, 0, SPEED)
 
 	var collision = move_and_collide(velocity * delta)
 

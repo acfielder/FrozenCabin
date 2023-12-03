@@ -909,8 +909,6 @@ text = "wake up"
 position = Vector2(222, 126)
 scale = Vector2(0.108826, 0.121203)
 
-[node name="MainTimer" type="Timer" parent="."]
-
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
 offset_right = 40.0

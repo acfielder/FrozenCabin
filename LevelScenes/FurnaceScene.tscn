@@ -97,6 +97,4 @@ offset_right = 94.0
 offset_bottom = 45.0
 text = "main"
 
-[node name="MainTimer" type="Timer" parent="."]
-
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

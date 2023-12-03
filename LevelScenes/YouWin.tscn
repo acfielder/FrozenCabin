@@ -1,0 +1,47 @@
+[gd_scene load_steps=4 format=3 uid="uid://beejwglomd7pn"]
+
+[ext_resource type="Script" path="res://LevelScenes/YouWin.gd" id="1_iy2pm"]
+[ext_resource type="PackedScene" uid="uid://d33lc6owbl2mx" path="res://Characters/main_dude.tscn" id="1_ptct2"]
+[ext_resource type="Texture2D" uid="uid://celoxu6nbn7vu" path="res://Characters/Savior.png" id="2_jbjoc"]
+
+[node name="YouWin" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_iy2pm")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 298.0
+offset_bottom = 164.0
+color = Color(0.658824, 0.929412, 0.929412, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+layout_mode = 0
+offset_top = 59.0
+offset_right = 298.0
+offset_bottom = 164.0
+
+[node name="ColorRect3" type="ColorRect" parent="."]
+layout_mode = 0
+offset_top = 136.0
+offset_right = 298.0
+offset_bottom = 164.0
+color = Color(0.478431, 0.407843, 0.294118, 1)
+
+[node name="MainDude" parent="." instance=ExtResource("1_ptct2")]
+position = Vector2(170, 143)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 116.0
+offset_top = 14.0
+offset_right = 184.0
+offset_bottom = 40.0
+text = "You Win!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Savior" type="Sprite2D" parent="."]
+position = Vector2(110.718, 128)
+scale = Vector2(0.198659, 0.176538)
+texture = ExtResource("2_jbjoc")

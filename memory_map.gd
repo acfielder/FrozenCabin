@@ -12,10 +12,7 @@ var scene_reset = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	#if $EatScene.is_visible():
 	setup_board()
-	update_text() 
-		#scene_reset = 1
 
 func _process(delta):
 	pass
@@ -76,7 +73,4 @@ func put_back_cards_with_delay():
 		place_single_face_down_card(spot)
 	revealed_spots.clear()
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 
-#func _on_eat_close_pressed():
-#	scene_reset = 0

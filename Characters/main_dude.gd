@@ -21,8 +21,6 @@ func _physics_process(delta):
 		velocity.y = move_toward(velocity.y, 0, SPEED)
 		
 	var collision = move_and_collide(velocity * delta)
-	if collision:
-		print(collision.get_collider().name)
 	
 	if collision && collision_check_bed == false && collision.get_collider().name == "Bed":
 		collision_check_bed = true;
