@@ -1,17 +1,23 @@
-[gd_scene load_steps=3 format=3 uid="uid://defix0f7huuoy"]
+[gd_scene load_steps=4 format=3 uid="uid://defix0f7huuoy"]
 
-[ext_resource type="Texture2D" uid="uid://c2vxkvecqxopc" path="res://Characters/BedN.png" id="1_jcuuk"]
+[ext_resource type="Texture2D" uid="uid://4kpy274ay44q" path="res://Chosen Art/BedBottom.png" id="1_ymqul"]
+[ext_resource type="Texture2D" uid="uid://hciwgxbwebbu" path="res://Chosen Art/BedCover.png" id="2_ivvtp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i62cx"]
-size = Vector2(27, 42)
+size = Vector2(63.5, 38)
 
 [node name="Bed" type="CharacterBody2D"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(42.5, 130)
+position = Vector2(54.25, 120)
 shape = SubResource("RectangleShape2D_i62cx")
 
 [node name="Bed" type="Sprite2D" parent="."]
-position = Vector2(43, 130)
-scale = Vector2(0.114295, 0.114295)
-texture = ExtResource("1_jcuuk")
+position = Vector2(50, 114.571)
+scale = Vector2(2.11765, 1.88918)
+texture = ExtResource("1_ymqul")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(53.6345, 120)
+scale = Vector2(2.13915, 1.64286)
+texture = ExtResource("2_ivvtp")

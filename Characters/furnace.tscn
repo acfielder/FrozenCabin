@@ -1,17 +1,17 @@
 [gd_scene load_steps=3 format=3 uid="uid://dpsc6meevel4f"]
 
-[ext_resource type="Texture2D" uid="uid://cecrcwd3dswe7" path="res://Characters/Furnace.png" id="1_s6vfp"]
+[ext_resource type="Texture2D" uid="uid://baawwv2wqe8wf" path="res://Chosen Art/fireplace.png" id="1_hy6vm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qsocx"]
-size = Vector2(43.5, 56.75)
+size = Vector2(43.5, 46.75)
 
 [node name="Furnace" type="CharacterBody2D"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(57.25, 64.375)
+position = Vector2(57.25, 69.375)
 shape = SubResource("RectangleShape2D_qsocx")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(57.6875, 62.571)
-scale = Vector2(0.141717, 0.141717)
-texture = ExtResource("1_s6vfp")
+position = Vector2(57, 70)
+scale = Vector2(1.48387, 1.48387)
+texture = ExtResource("1_hy6vm")

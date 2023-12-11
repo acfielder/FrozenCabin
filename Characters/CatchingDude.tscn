@@ -1,14 +1,24 @@
-[gd_scene load_steps=3 format=3 uid="uid://b1p4rqngo0mol"]
+[gd_scene load_steps=4 format=3 uid="uid://b1p4rqngo0mol"]
 
 [ext_resource type="Script" path="res://Characters/CatchingDude.gd" id="1_qqcwg"]
-[ext_resource type="Texture2D" uid="uid://b25x4vlfqj4uu" path="res://Characters/CatchingPerson.png" id="1_x50yh"]
+[ext_resource type="Texture2D" uid="uid://cijq88nh821b" path="res://Chosen Art/newCatchingDude.png" id="2_lat37"]
+[ext_resource type="Texture2D" uid="uid://ddyqq8a51qj0n" path="res://Chosen Art/bucket.png" id="3_ffpuv"]
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
 script = ExtResource("1_qqcwg")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_x50yh")
+position = Vector2(0, -20)
+scale = Vector2(-11.2069, 11.5217)
+texture = ExtResource("2_lat37")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(-103, 11)
+rotation = 0.523598
+scale = Vector2(1.12928, 1.1103)
+texture = ExtResource("3_ffpuv")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-position = Vector2(-5, 0)
-polygon = PackedVector2Array(-21, -48, -130, -53, -130, -4, -15, -4)
+position = Vector2(-50.1481, 3.23457)
+scale = Vector2(0.725543, 0.697704)
+polygon = PackedVector2Array(-21, -48, -134.867, -44.7676, -130, -4, -15, -4)

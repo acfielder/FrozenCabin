@@ -26,7 +26,7 @@ func _ready():
 	doorCurrent = doorTotal
 	
 	add_child(OverallTimerVal)
-	OverallTimerVal.set_wait_time(240)
+	OverallTimerVal.set_wait_time(260)
 	OverallTimerVal.one_shot = true
 	OverallTimerVal.start()
 	
@@ -72,7 +72,7 @@ func _process(delta):
 	elif FurnaceTimerVal.time_left <= 0:
 		global.causeOfDeath = "freezing to death"
 		get_tree().change_scene_to_file("res://LevelScenes/GameOver.tscn")
-	elif OverallTimerVal.time_left == 0:
+	elif OverallTimerVal.time_left <= 0:
 		get_tree().change_scene_to_file("res://LevelScenes/YouWin.tscn")
 		winReason = "someone dug you out"
 	elif doorCurrent <= 0:

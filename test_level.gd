@@ -28,7 +28,7 @@ func _process(delta):
 	$HungerLevelMain.text = str(floor(global.EatTimerVal.time_left))
 	$EatProgress.value = floor(global.EatTimerVal.time_left)
 	if global.eaten > 0:
-		global.EatTimerVal.set_wait_time(global.EatTimerVal.time_left +(global.eaten * 4))
+		global.EatTimerVal.set_wait_time(global.EatTimerVal.time_left +(global.eaten * 6))
 		if global.EatTimerVal.wait_time > 250:
 			global.EatTimerVal.set_wait_time(250)
 		global.EatTimerVal.start()
@@ -60,18 +60,5 @@ func _process(delta):
 	$ClimbProgress.value = floor(global.ClimbTimerVal.time_left)
 	
 
-	if global.ClimbTimerVal.time_left < 80:
-		$Snow.visible = true
-	else:
-		$Snow.visible = false
-	if global.ClimbTimerVal.time_left < 60:
-		$Snow2.visible = true
-	else:
-		$Snow2.visible = false
-	if global.ClimbTimerVal.time_left < 40:
-		$Snow3.visible = true
-	else:
-		$Snow3.visible = false
-		
 
 
